@@ -1,0 +1,11 @@
+.header {
+  &_wrapper {
+    grid-area: header;
+  }
+
+  &_nav-bar {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+  }
+}

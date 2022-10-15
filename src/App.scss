@@ -1,0 +1,21 @@
+.app_layout {
+  display: grid;
+  grid-template-rows: 0.3fr 1fr 0.2fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  height: 100vh;
+  width: 100vw;
+}
+
+@media (min-width: 768px) {
+  .app_layout {
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas:
+      '. header .'
+      '. main .'
+      '. footer .';
+  }
+}

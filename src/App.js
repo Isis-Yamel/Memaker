@@ -1,15 +1,15 @@
-import './App.css';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
-function App() {
+import './App.scss';
+
+const App = () => {
   return (
-    <div className="App">
-      <header>
-        <p>
-          Boostrap app
-        </p>
-      </header>
+    <div className="app_layout">
+      <Header/>
+      <Footer/>
     </div>
   );
-}
+};
 
 export default App;
