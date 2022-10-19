@@ -9,6 +9,7 @@ export const typeDefs = gql`
   }
 
 	type Query {
+    meme(id: ID!): Meme
 		memes: [Meme!]!
 	}
 `;

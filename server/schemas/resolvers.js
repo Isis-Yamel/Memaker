@@ -1,7 +1,8 @@
-import {MemeData} from '../memeData.js';
+import { Memes } from '../db.js';
 
 export const resolvers = {
   Query: {
-    memes: () => MemeData
+    meme: (_root, { id }) => Memes.findById(id),
+    memes: () => Memes.findAll()
   }
 };

@@ -1,4 +1,4 @@
-export const MemeData = [
+[
   {
     "id":"1a",
     "image":"http://imgflip.com/s/meme/Grumpy-Cat.jpg",
