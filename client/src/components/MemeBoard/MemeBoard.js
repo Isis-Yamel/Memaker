@@ -1,11 +1,11 @@
 import './MemeBoard.scss';
 
-import { useMemes } from '../../graphql/hooks.js';
+import { useMemes, useCreateMeme } from '../../graphql/hooks.js';
 
 const MemeBoard = () => {
   const { memes, loading, error } = useMemes();
+  const { createMeme } = useCreateMeme();
 
-  console.log(memes, loading, error);
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -14,14 +14,21 @@ const MemeBoard = () => {
     return <p>Sorry, something went wrong.</p>;
   }
 
+  const handler = async (event) => {
+    event.preventDefault();
+    const meme = await createMeme('This is a name', 'http://imgflip.com/s/meme/Grumpy-Cat.jpg');
+    console.log(meme);
+  }
+
   return (
    <section className='meme-board_wrapper'>
+     <button onClick={handler}> Test Create</button>
      {memes.map(meme => (
-       <div key={meme.id}>
-         <h2>{meme.name}</h2>
-         <img src={meme.image} alt={meme.name}/>
-         <p>{meme.memeText}</p>
-       </div>
+        <div key={meme.id}>
+          <h2>{meme.name}</h2>
+          <img src={meme.image} alt={meme.name}/>
+          <p>{meme.memeText}</p>
+        </div>
      ))}
    </section>
   );
