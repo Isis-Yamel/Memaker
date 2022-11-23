@@ -4,6 +4,7 @@ import { useMemes, useCreateMeme } from '../../graphql/hooks.js';
 
 const MemeBoard = () => {
   const { memes, loading, error } = useMemes();
+  // loading prop to disable button on submit
   const { createMeme } = useCreateMeme();
 
   if (loading) {
@@ -21,7 +22,7 @@ const MemeBoard = () => {
   }
 
   return (
-   <section className='meme-board_wrapper'>
+   <section>
      <button onClick={handler}> Test Create</button>
      {memes.map(meme => (
         <div key={meme.id}>
